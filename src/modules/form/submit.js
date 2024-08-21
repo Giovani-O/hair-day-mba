@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { scheduleNew } from '../../services/schedule-new.js'
 
 const form = document.querySelector('form')
 const clientName = document.getElementById('client')
@@ -33,6 +34,12 @@ form.onsubmit = (event) => {
 
     // Gera um ID
     const id = new Date().getTime()
+
+    scheduleNew({
+      id,
+      name,
+      when,
+    })
   } catch (error) {
     alert('Não foi possível realizar o agendamento')
   }
